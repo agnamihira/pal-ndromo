@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC>
+<meta charset="utf-8">
+<title>palíndromo</title>
+ 
+<script type="text/javascript">
+function palindromo(frase) {
+ 
+  var resultado = "La frase \"" + frase + "\" \n";
+  //se guarda como resultado la frase, se imprime 
+ 
+  // Pasar a minusculas la frase;
+  //var str = "Hello World!";
+  //var res = str.toLowerCase(); por que si no, no la va a leer igual;
+  var fraseCompleta = frase.toLowerCase();
+ 
+  // Convertir la cadena en un array/sean muchas letras o elementos(palabras);
+  //var res=string.split("")--para separar elementos- en string
+  var letrasEspacios = fraseCompleta.split("");
+ 
+  // Eliminar los espacios
+  var fraseSinEspacios = ""; //empieza vacía;
+  for(i in letrasEspacios) {
+    if(letrasEspacios[i] != " ") { //  "!=" significa no es o no se parece a "un espacio" métela en "";
+      fraseSinEspacios += letrasEspacios[i];
+    }
+  }
+ 
+  var letras = fraseSinEspacios.split("");
+  var letrasReverse = fraseSinEspacios.split("").reverse();
+  //el reverse sólo me lo da en array, los compara el primer elemento normal con el otro volteado;
+ 
+  var diferentes = false;
+  for(i in letras) {
+    if(letras[i] == letrasReverse[i]) {
+    }
+    else {
+      // Si no hay letras iguales entonces no es un palindromo
+      diferentes = true;
+    }
+  }
+ 
+  if(diferentes) {
+    resultado += " no es un palíndromo :(";
+  }
+  else {
+    resultado += " es un palíndromo :)";
+  }
+ 
+  return resultado;
+}
+
+
+
+//*****opción 1 en consola;
+
+ // var res1 = palindromo("Hola")
+ // console.log(res1)
+ // var res2 = palindromo("Anita lava la tina")
+ // console.log(res2)
+
+
+
+// ****opcion 2 en alerts;
+
+alert(palindromo("Anita lava la tina"));
+alert(palindromo("Hola cómo estás"));
+</script>
+</head>
+ 
+<body>
+</body>
+</html>
+
+<!-- // en caso de hacerlo con length, se tiene que usar length-1 siempre -->
+<!-- \s significa = todos los espacios en blanco -->
